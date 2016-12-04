@@ -31,13 +31,18 @@
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
 %% Color for highlight
 % Define your custom color if you don't like awesome colors
-\colorlet{awesome}{awesome-red}
-%\definecolor{awesome}{HTML}{CA63A8}
+%\colorlet{awesome}{awesome-red}
+\definecolor{awesome}{HTML}{820000}
 %% Colors for text
 %\definecolor{darktext}{HTML}{414141}
 %\definecolor{text}{HTML}{414141}
 %\definecolor{graytext}{HTML}{414141}
 %\definecolor{lighttext}{HTML}{414141}
+
+% Override multicolor section headings
+\makeatletter
+\def\@sectioncolor{\color{awesome}}
+\makeatother
 
 %%% Override a separator for social informations in header(default: ' | ')
 %\headersocialsep[\quad\textbar\quad]
@@ -54,17 +59,18 @@
 %     Personal Data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Essentials
-\name{Claud D.}{Park}
-\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 22738, Rep. of KOREA}
-\mobile{(+82) 10-9030-1843} 
+\name{John C.}{Kegelman}
+\address{26025 Duval Way, Los Altos Hills, CA 94022}
+\mobile{757-593-2561} 
 %%% Social
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\email{jckegelman@gmail.com}
+%\homepage{www.jckegelman.com}
+\github{jckegelman}
+\twitter{johnckegelman}
+\linkedin{johnckegelman}
 %%% Optionals
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
-\quote{``Make the change that you want to see in the world."}
+\position{Ph.D. Candidate at Stanford University}
+%\quote{``Make the change that you want to see in the world."}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,7 +79,7 @@
 %%% Make a footer for CV with three arguments(<left>, <center>, <right>)
 \makecvfooter
   {\today}
-  {Claud D. Park~~~·~~~Résumé}
+  {John C. Kegelman~~~·~~~Résumé}
   {\thepage}
 
 \begin{document}
@@ -85,8 +91,8 @@
 \import{\sectiondir}{experience.tex}
 \import{\sectiondir}{extracurricular.tex}
 \import{\sectiondir}{honors.tex}
-\import{\sectiondir}{presentation.tex}
-\import{\sectiondir}{writing.tex}
-\import{\sectiondir}{committees.tex}
+%\import{\sectiondir}{presentation.tex}
+%\import{\sectiondir}{writing.tex}
+%\import{\sectiondir}{committees.tex}
 
 \end{document}
