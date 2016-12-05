@@ -1,0 +1,106 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, letterpaper]{awesome-cv}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Specify the location of the included sections
+\newcommand*{\sectiondir}{cv/}
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+% \colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
+\definecolor{awesome}{HTML}{820000}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{414141}
+% \definecolor{graytext}{HTML}{414141}
+% \definecolor{lighttext}{HTML}{414141}
+
+% Override multicolor section headings
+\makeatletter
+\def\@sectioncolor{\color{awesome}}
+\makeatother
+
+% If you would like to change the social information separator from a pipe (|) to something else
+% \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{./examples/profile}
+\name{John C.}{Kegelman}
+\position{Ph.D. Candidate at Stanford University}
+\address{26025 Duval Way, Los Altos Hills, CA 94022}
+
+\mobile{757-593-2561}
+\email{jckegelman@gmail.com}
+% \homepage{www.jckegelman.com}
+\github{jckegelman}
+\linkedin{johnckegelman}
+\twitter{@johnckegelman}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \extrainfo{extra informations}
+
+% \quote{``All models are wrong, but some are useful.''}
+
+\usepackage{import}
+\addbibresource{references.bib}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader%
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter%
+  {\today}
+  {John C. Kegelman~~~·~~~Curriculum vitae}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\import{\sectiondir}{education.tex}
+\import{\sectiondir}{research.tex}
+\import{\sectiondir}{experience.tex}
+\import{\sectiondir}{publications.tex}
+\import{\sectiondir}{honors.tex}
+\import{\sectiondir}{extracurricular.tex}
+\import{\sectiondir}{personal.tex}
+
+\end{document}
