@@ -47,7 +47,7 @@
 %                3rd party packages
 %-------------------------------------------------------------------------------
 % Needed to make fixed length table
-\RequirePackage{array}
+\RequirePackage{tabularx}
 % Needed to handle list environment
 \RequirePackage{enumitem}
 % Needed to handle text alignment
@@ -387,6 +387,7 @@
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{Y}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
 
 % Use to draw horizontal line with specific thickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
@@ -532,7 +533,7 @@
 \newcommand{\cvsection}[1]{%
   \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
-  \phantomsection
+  \phantomsection%
   \color{gray}\vhrulefill{0.9pt}
 }
 
@@ -542,14 +543,14 @@
   \vspace{\acvSectionContentTopSkip}
   \vspace{-3mm}
   \subsectionstyle{#1}
-  \phantomsection
+  \phantomsection%
 }
 
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
   \vspace{\acvSectionContentTopSkip}
   \vspace{-3mm}
-  \paragraphstyle
+  \paragraphstyle%
 }{%
   \par
   \vspace{2mm}
@@ -562,6 +563,7 @@
 }{%
   \end{center}
 }
+
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
@@ -605,39 +607,32 @@
 \newenvironment{cvhonors}{%
   \vspace{\acvSectionContentTopSkip}
   \vspace{-2mm}
-  \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} R{1.5cm} C{.3cm} L{\textwidth - 5.0cm} R{3.2cm}}
+  \setlength\tabcolsep{1ex}
+  \setlength{\extrarowheight}{0pt}
+  \tabularx{\textwidth}{rYr}
 }{%
-    \end{tabular*}
-  \end{center}
+  \endtabularx\par
 }
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cvhonor}[4]{%
-  \ifempty{#1}
-  {\ifempty{#3}{\honordatestyle{#4} & & \honortitlestyle{#2}                          &                         \\}
-               {\honordatestyle{#4} & & \honortitlestyle{#2}                          & \honorlocationstyle{#3} \\}}
-               {\honordatestyle{#4} & & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\}
+  \honordatestyle{#4} & \honorpositionstyle{#1}\ifthenelse{\isempty{#1} \OR \isempty{#2}}{}{,} \honortitlestyle{#2} & \honorlocationstyle{#3} \\
 }
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
   \vspace{-2.0mm}
-  \begin{center}
-    \setlength\tabcolsep{1ex}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
+  \setlength\tabcolsep{1ex}
+  \setlength{\extrarowheight}{0pt}
+  \tabularx{\textwidth}{rY}
 }{%
-    \end{tabular*}
-  \end{center}
+  \endtabularx\par
 }
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
-	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+	\skilltypestyle{#1} & \leavevmode\skillsetstyle{#2} \\
 }
 
 % Define an environment for cvitems(for cventry)
